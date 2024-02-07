@@ -1,0 +1,62 @@
+
+.containerGame {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: #003a74;
+  border-radius: 12px;
+}
+
+.squareRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  font-size: 55px;
+  background-color: #2491ff;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.info {
+  background-color: #003a74;
+  min-height: 340px;
+  max-width: 230px;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.info h2 {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background-color: #2491ff;
+  color: #000d43;
+}
+
+.info button {
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #2491ff;
+  color: #000d43;
+  margin-bottom: 7px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.info .hold {
+  border: 3px #2491ff solid;
+  color: #2491ff;
+  background-color: #002f5f;
+}
