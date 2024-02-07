@@ -14,6 +14,7 @@ function App() {
   const [turn, setTrun] = useState(false);
   const [woner, setWoner] = useState("");
   const [allGame, setAllGame] = useState([]);
+  const [idHold, setIdHold] = useState('')
 
 
   function startAgain() {
@@ -26,9 +27,16 @@ function App() {
   function showOldGame(id) {
     setView(true)
 
-    console.log(id);
-    setAllGame((oldGames) => oldGames.map(game => {
-      return game.id == id ? {...game, isHold: true} : {...game, isHold: false}
+
+    setAllGame((oldGames) => oldGames.map((game, index) => {
+      if (game.id == id) {
+        setIdHold(index)
+        return {...game, isHold: true}
+      } else {
+        return {...game, isHold: false}
+      }
+      // setIdHold(index)
+      // return game.id == id ? {...game, isHold: true} : {...game, isHold: false}
     }));
   }
 
@@ -105,27 +113,30 @@ function App() {
   }
 
   function takeTrun(e, id) {
-    if (e.target.value == "") {
-      setTrun((old) => !old);
-      setSquarsRow((oldSquare) =>
-        oldSquare.map((row) =>
-          row.map((square) => {
-            return square.id == id
-              ? { ...square, value: turn ? "O" : "X" }
-              : square;
-          })
-        )
-      );
+    if (!view) {
+      if (e.target.value == "") {
+        setTrun((old) => !old);
+        setSquarsRow((oldSquare) =>
+          oldSquare.map((row) =>
+            row.map((square) => {
+              return square.id == id
+                ? { ...square, value: turn ? "O" : "X" }
+                : square;
+            })
+          )
+        );
+      }
     }
   }
 
   return (
     <main>
-      <Game squarsRow={squarsRow} takeTrun={takeTrun} />
+      <Game squarsRow={view ? allGame[idHold].gameSquars :squarsRow}  takeTrun={takeTrun} />
       <Info
         turn={turn}
-        woner={woner}
+        woner={view ? allGame[idHold].woner : woner}
         allGame={allGame}
+        idHold={idHold}
         showOldGame={showOldGame}
         view={view}
         startAgain={startAgain}
