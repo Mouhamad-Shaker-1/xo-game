@@ -98,7 +98,10 @@ main {
 @media (max-width: 600px) {
   main {
     flex-direction: column;
-    gap: 6px;
+    gap: 0;
+  }
+  .containerGame {
+    margin-bottom: 10px;
   }
 }
 
