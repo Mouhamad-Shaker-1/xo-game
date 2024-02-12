@@ -27,11 +27,18 @@
 }
 
 .info {
+  min-width: 193px;
   background-color: #003a74;
   min-height: 340px;
   max-width: 230px;
   border-radius: 12px;
   padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .info {
+    min-width: 325px;
+  }
 }
 
 .info h2 {
@@ -60,3 +67,4 @@
   color: #2491ff;
   background-color: #002f5f;
 }
+

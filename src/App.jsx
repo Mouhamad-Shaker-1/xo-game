@@ -24,10 +24,12 @@ function App() {
     }));
   }
 
-  function showOldGame(id) {
+  function showOldGame(e, id) {
+    console.log(e.detail)
+    if (e.detail == 2) {
+      console.log('done')
+    }
     setView(true)
-
-
     setAllGame((oldGames) => oldGames.map((game, index) => {
       if (game.id == id) {
         setIdHold(index)
@@ -38,6 +40,7 @@ function App() {
       // setIdHold(index)
       // return game.id == id ? {...game, isHold: true} : {...game, isHold: false}
     }));
+
   }
 
   useEffect(() => {
@@ -109,6 +112,12 @@ function App() {
       allSquares[2].value != ""
     ) {
       setWoner(allSquares[2].value);
+    } else if (
+      allSquares.every(squar => {
+        return squar.value != ''
+      })
+    ) {
+      setWoner("no one")
     }
   }
 

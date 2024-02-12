@@ -95,6 +95,13 @@ main {
   background-color: #fff;
 }
 
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

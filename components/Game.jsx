@@ -1,6 +1,6 @@
 
 export default function Game(props) {
-  console.log(props.squarsRow)
+
   
   const squarsElement = props.squarsRow.map((row, index) => {
     const rowOfSquares = row.map((square) => {
